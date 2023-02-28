@@ -2,33 +2,55 @@ package Programming;
 
 import java.util.Scanner;
 
+
 public class Lab6_1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter the length of the array: ");
-        int length = scanner.nextInt();
-
-        double[] xn = new double[length];
-
-        for (int i = 0; i < length; i++) {
-            System.out.print("Enter the value of element " + i + ": ");
-            xn[i] = scanner.nextDouble();
+        System.out.print("Введите длину массива: ");
+        int n = scanner.nextInt();
+        if (n < 10) {
+            System.out.println("Длина массива должна быть не менее 10");
+            return;
         }
 
-        double positiveSum = 0.0;
-        double positiveProduct = 1.0;
+        double[] X = new double[n];
 
-        for (double x : xn) {
-            if (x > 0) {
-                positiveSum += x;
-                positiveProduct *= x;
-            } else {
-                System.out.println("Negative element: " + x);
+        for (int i = 0; i < n; i++) {
+            System.out.print("x(" + i + ") = ");
+            X[i] = scanner.nextDouble();
+        }
+
+
+        System.out.print("Начальный массив: ");
+        printArray(X);
+
+
+        double sum = 0.0;
+        double product = 1.0;
+
+        for (int i = 0; i < n; i++) {
+            if (X[i] > 0) {
+                sum += X[i];
+                product *= X[i];
             }
         }
 
-        System.out.println("Sum of positive elements: " + positiveSum);
-        System.out.println("Product of positive elements: " + positiveProduct);
+
+        System.out.println("Сумма положительных элементов: " + sum);
+        System.out.println("Произведение положительных элементов: " + product);
+        System.out.print("Отрицательные элементы: ");
+        for (int i = 0; i < n; i++) {
+            if (X[i] < 0) {
+                System.out.print(X[i] + " ");
+            }
+        }
+    }
+
+    private static void printArray(double[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
     }
 }

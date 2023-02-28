@@ -5,44 +5,48 @@ public class Lab6_2 {
         public static void main(String[] args) {
             Scanner scanner = new Scanner(System.in);
 
-            System.out.print("Enter the length of the array: ");
-            int length = scanner.nextInt();
-
-            int[] yn = new int[length];
-
-            for (int i = 0; i < length; i++) {
-                System.out.print("Enter the value of element " + i + ": ");
-                yn[i] = scanner.nextInt();
+            System.out.print("Введите длину массива: ");
+            int n = scanner.nextInt();
+            if (n < 10) {
+                System.out.println("Длина массива должна быть не менее 10");
+                return;
             }
 
-            int penultimateOdd = 0;
+            int[] Y = new int[n];
 
-            for (int i = length - 2; i >= 0; i -= 2) {
-                if (yn[i] % 2 == 1) {
-                    penultimateOdd = yn[i];
+            for (int i = 0; i < n; i++) {
+                System.out.print("x(" + i + ") = ");
+                Y[i] = scanner.nextInt();
+            }
+
+            int penultimateIndex = -1;
+
+            for (int i = n - 2; i >= 0; i -= 2) {
+                if (Y[i] % 2 == 1) {
+                    penultimateIndex = i;
                     break;
                 }
             }
 
-            System.out.println("Penultimate odd element with an even index: " + penultimateOdd);
+            if (penultimateIndex != -1) {
+                System.out.println("Предпоследний нечетный элемент с четным индексом равен: Y(" + penultimateIndex + ") = " + Y[penultimateIndex]);
+            } else {
+                System.out.println("Нет предпоследнего нечетного элемента с четным индексом.");
+            }
 
-            int negativesReplaced = 0;
+            int count = 0;
 
-            for (int i = 0; i < length; i++) {
-                if (yn[i] < 0) {
-                    yn[i] = 0;
-                    negativesReplaced++;
-
-                    if (negativesReplaced == 3) {
-                        break;
-                    }
+            for (int i = 0; i < n && count < 3; i++) {
+                if (Y[i] < 0) {
+                    Y[i] = 0;
+                    count++;
                 }
             }
 
-            System.out.print("Updated array: ");
+            System.out.println("Массив после замены первых трех отрицательных элементов нулями:");
 
-            for (int i = 0; i < length; i++) {
-                System.out.print(yn[i] + " ");
+            for (int i = 0; i < n; i++) {
+                System.out.println("Y(" + i + ") = " + Y[i]);
             }
         }
     }
