@@ -1,13 +1,26 @@
 package Programming;
 
+import java.util.Scanner;
+
+import static java.lang.Math.*;
+
 public class Lab1 {
     public static void main(String[] args) {
-        int a = 1;
-        int b = 0;
-        int c = 1;
-        double e = 2.71;
-        System.out.println(Math.pow(9, -1) + Math.sqrt((Math.pow(a, 2) + b) / (0.4 * a)) -
-                (Math.pow(10, 4) * Math.pow(e, a * c)) + (Math.cos(Math.sqrt(Math.pow(a, 2) + b))) +
-                ((Math.sin(3))/(5 * (Math.pow(a, 2) + b))));
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("a = ");
+        double a = scanner.nextDouble();
+        System.out.print("b = ");
+        double b = scanner.nextDouble();
+        System.out.print("c = ");
+        double c = scanner.nextDouble();
+        double y = pow(9, -1) + sqrt((pow(a, 2) + b) / (0.4 * a)) -
+                (pow(10, 4) * pow(exp(1), a * c)) + (cos(sqrt(pow(a, 2) + b))) +
+                ((sin(3)) / (5 * (pow(a, 2) + b)));
+        double cos = cos(sqrt(a * a + b));
+        if (a * 0.4 != 0 && (a * a + b) / (0.4 * a) >= 0 && -1 <= cos && cos <= 1 && (a * a + b) != 0) {
+            System.out.println("y = " + y);
+        } else {
+            System.out.println("Нет решения для данных параметров");
+        }
     }
 }

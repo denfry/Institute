@@ -1,76 +1,42 @@
 package Programming;
 
 import java.util.Scanner;
+
 import static java.lang.Math.*;
+
 public class Lab2_1 {
-    public static void main(String[] args){
-//        int a = Integer.MAX_VALUE;
-//        int b = Integer.MIN_VALUE;
-        int mn = 0;
+    public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        System.out.print("x1 = ");
-        int x1 = in.nextInt();
-        System.out.print("x2 = ");
-        int x2 = in.nextInt();
-        System.out.print("x3 = ");
-        int x3 = in.nextInt();
-        System.out.print("x4 = ");
-        int x4 = in.nextInt();
-        System.out.print("x5 = ");
-        int x5 = in.nextInt();
-//        if (x1 < a){
-//            a = x1;
-//            if (x2 + x3 < a){
-//                a = x2 + x3;
-//                if (x4 < a){
-//                    a = x4;
-//                    if (x5 < a){
-//                        a = x5;
-//                    }
-//                }
-//            }
-//        }
-//        if (x1 < x2){
-//            mn = x1;
-//        } else {
-//            mn = x2;
-//        }
-//        if (mn > b) {
-//            b = mn;
-//            if (x3 > b) {
-//                b = x3;
-//            } else if(x4 + x5 > b){
-//                b = x4 + x5;
-//            }
-//        }
-        double min = x1;
-
-        if (x2 + x3 < min){
-            min = x2 + x3;
+        System.out.print("Input a: ");
+        int a = in.nextInt();
+        double y;
+        if ((a == 1) || (5 <= a && 10 >= a)) {
+            y = exp(a) / a;
+        }else if ((-15 <= a && -4 >= a) || (a == 24) || (a >= 50)){
+            y = 2 * a + sqrt(a);
+        }else if (a < -20 || a == 40) {
+            y = a - 3;
+        }else {
+            y = cos(2*a);
         }
-        if (x4 < min){
-            min = x4;
-        }
-        if (x5 < min){
-            min = x5;
-        }
-        if (x1 < x2){
-            mn = x1;
-        } else {
-            mn = x2;
-        }
-
-        double max = mn;
-
-        if (x3 > max){
-            max = x3;
-        }
-        if (x4 + x5 > max){
-            max = x4 + x5;
-        }
-        double y = ((3 * pow(min, 2)) - sqrt(3 * max + 1)) / (min * max + 5);
         System.out.println("y = " + y);
+
+        double y1 = 0;
+        switch ((a == 1) || (5 <= a && 10 >= a) ? 1 : 0) {
+            case 1 -> y1 = exp(a) / a;
+            case 0 -> {
+                switch ((-15 <= a && -4 >= a) || (a == 24) || (a >= 50) ? 1 : 0) {
+                    case 1 -> y1 = exp(a) / a;
+                    case 0 -> {
+                        switch ((a < -20) || (a == 40) ? 1 : 0) {
+                            case 1 -> y1 = a - 3;
+                            default -> y1 = cos(2 * a);
+                        }
+                    }
+                }
+            }
+        }
+            System.out.println("y1 = " + y1);
+        }
     }
-}
-// 2 sec, 453 ms
-// 1 sec, 606 ms
+

@@ -27,5 +27,4 @@ public class p2 {
         }
         System.out.println("y = " + y);
     }
-
 }
