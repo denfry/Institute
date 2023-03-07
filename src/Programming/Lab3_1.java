@@ -6,29 +6,29 @@ import static java.lang.Math.*;
 public class Lab3_1 {
     public static void main(String[] args){
         double sf, sw, sd;
-        int s1 = 0;
-        int s2 = 0;
-        int p = 1;
+        double s1 = 0;
+        double s2 = 0;
+        double p = 1;
         Scanner in = new Scanner(System.in);
         System.out.print("M = ");
-        int M = in.nextInt();
+        double M = in.nextDouble();
         System.out.print("L = ");
-        int L = in.nextInt();
+        double L = in.nextDouble();
         System.out.print("a = ");
-        int a = in.nextInt();
-        System.out.println("For");
+        double a = in.nextDouble();
+        System.out.println("Цикл For");
         for (int j = 2; j <= M; j++){
              s1 = s1 + ((j + 2) / a);
         }
         for (int k = 0; k <= L; k++){
-            s2 = (int) (s2 + (k + pow(a, 2)));
+            s2 = (s2 + (k + a*a));
             p = p * ((2 * a) / (k + 1));
         }
         sf = s1 + 1.2 * p - s2;
         System.out.println(sf);
 
 
-        System.out.println("While");
+        System.out.println("Цикл While");
         s1 = 0;
         s2 = 0;
         p = 1;
@@ -38,13 +38,13 @@ public class Lab3_1 {
             j++;
         }
         while (k <= L){
-            s2 = (int) (s2 + (k + pow(a, 2)));
+            s2 = (s2 + (k + a*a));
             p = p * ((2 * a) / (k + 1));
             k++;
         }
         sw = s1 + 1.2 * p - s2;
         System.out.println(sw);
-        System.out.println("Do While");
+        System.out.println("Цикл Do While");
 
         s1 = 0;
         s2 = 0;
@@ -54,7 +54,7 @@ public class Lab3_1 {
             j++;
         } while (j <= M);
         do{
-            s2 = (int) (s2 + (k + pow(a, 2)));
+            s2 = (s2 + (k + a*a));
             p = p * ((2 * a) / (k + 1));
             k++;
         } while (k <= L);

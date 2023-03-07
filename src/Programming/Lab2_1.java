@@ -7,17 +7,17 @@ import static java.lang.Math.*;
 public class Lab2_1 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        System.out.print("Input a: ");
-        int a = in.nextInt();
+        System.out.print("Введите a: ");
+        double a = in.nextDouble();
         double y;
         if ((a == 1) || (5 <= a && 10 >= a)) {
             y = exp(a) / a;
-        }else if ((-15 <= a && -4 >= a) || (a == 24) || (a >= 50)){
+        } else if ((-15 <= a && -4 >= a) || (a == 24) || (a >= 50)) {
             y = 2 * a + sqrt(a);
-        }else if (a < -20 || a == 40) {
+        } else if (a < -20 || a == 40) {
             y = a - 3;
-        }else {
-            y = cos(2*a);
+        } else {
+            y = cos(2 * a);
         }
         System.out.println("y = " + y);
 
@@ -36,7 +36,7 @@ public class Lab2_1 {
                 }
             }
         }
-            System.out.println("y1 = " + y1);
-        }
+        System.out.println("y1 = " + y1);
     }
+}
 
