@@ -1,31 +1,33 @@
 package Programming;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Lab7_1 {
         public static void main(String[] args) {
             Scanner scanner = new Scanner(System.in);
 
-            System.out.print("Enter the number of rows in the matrix: ");
+            System.out.print("Введите кол-во строк в матрице: ");
             int rows = scanner.nextInt();
 
-            System.out.print("Enter the number of columns in the matrix: ");
+            System.out.print("Введите кол-во столбцов в матрице: ");
             int columns = scanner.nextInt();
 
-            int[][] matrix = new int[rows][columns];
+            double[][] matrix = new double[rows][columns];
 
             for (int i = 0; i < rows; i++) {
                 for (int j = 0; j < columns; j++) {
-                    System.out.print("Enter the element at row " + (i+1) + " column " + (j+1) + ": ");
-                    matrix[i][j] = scanner.nextInt();
+                    System.out.print("Введите элемент в строке " + (i+1) + " столбце " + (j+1) + ": ");
+                    matrix[i][j] = scanner.nextDouble();
                 }
             }
 
-            System.out.println("Matrix:");
+            System.out.println("Матрица:");
 
             for (int i = 0; i < rows; i++) {
                 for (int j = 0; j < columns; j++) {
-                    System.out.print(matrix[i][j] + "\t");
+                    String fmat = new DecimalFormat("#0.0000").format(matrix[i][j]);
+                    System.out.print(fmat + "\t");
                 }
                 System.out.println();
             }
@@ -48,10 +50,10 @@ public class Lab7_1 {
                 maxIsInteger[j] = maxIsInt;
             }
 
-            System.out.println("Columns with maximum integer value:");
+            System.out.println("Столбцы с макс. целым значением:");
             for (int j = 0; j < columns; j++) {
                 if (maxIsInteger[j]) {
-                    System.out.println("Column " + (j+1) + ": " + maxValues[j]);
+                    System.out.println("Столбец " + (j+1) + ": " + maxValues[j]);
                 }
             }
         }

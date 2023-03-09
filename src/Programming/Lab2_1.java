@@ -26,7 +26,7 @@ public class Lab2_1 {
             case 1 -> y1 = exp(a) / a;
             case 0 -> {
                 switch ((-15 <= a && -4 >= a) || (a == 24) || (a >= 50) ? 1 : 0) {
-                    case 1 -> y1 = exp(a) / a;
+                    case 1 -> y1 = 2 * a + sqrt(a);
                     case 0 -> {
                         switch ((a < -20) || (a == 40) ? 1 : 0) {
                             case 1 -> y1 = a - 3;

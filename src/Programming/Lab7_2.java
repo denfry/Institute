@@ -1,38 +1,39 @@
 package Programming;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 public class Lab7_2 {
         public static void main(String[] args) {
             Scanner scanner = new Scanner(System.in);
 
-            // Read in the dimensions of the matrix
-            System.out.print("Enter the number of rows: ");
+
+            System.out.print("Введите кол-во строк в матрице: ");
             int n = scanner.nextInt();
 
-            System.out.print("Enter the number of columns: ");
+            System.out.print("Введите кол-во столбцов в матрице: ");
             int m = scanner.nextInt();
 
-            // Create the matrix
+
             double[][] matrix = new double[n][m];
 
-            // Read in the elements of the matrix
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < m; j++) {
-                    System.out.print("Enter the element at position (" + (i+1) + ", " + (j+1) + "): ");
+                    System.out.print("Введите элемент в строке " + (i) + " столбце " + (j) + ": ");
                     matrix[i][j] = scanner.nextDouble();
                 }
             }
 
-            // Display the matrix
+
             System.out.println("Matrix:");
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < m; j++) {
-                    System.out.print(matrix[i][j] + "\t");
+                    String fmat = new DecimalFormat("#0.0000").format(matrix[i][j]);
+                    System.out.print(fmat + "\t");
                 }
                 System.out.println();
             }
 
-            // Calculate the sums of positive elements in even rows
+
             double[] sums = new double[n/2];
             for (int i = 0; i < n; i += 2) {
                 for (int j = 0; j < m; j++) {
@@ -42,10 +43,10 @@ public class Lab7_2 {
                 }
             }
 
-            // Display the sums
-            System.out.println("Sums of positive elements in even rows:");
+
+            System.out.println("Суммы положительных элементов в чётных строках:");
             for (int i = 0; i < n/2; i++) {
-                System.out.println(sums[i]);
+                    System.out.println(sums[i]);
             }
         }
     }

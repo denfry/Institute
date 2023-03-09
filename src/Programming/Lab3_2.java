@@ -21,6 +21,6 @@ public class Lab3_2 {
             p = p * (i + s);
         }
         double y = p;
-        System.out.println(y);
+        System.out.println("y = " + y);
     }
 }

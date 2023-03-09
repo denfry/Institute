@@ -6,8 +6,6 @@ import static java.lang.Math.*;
 
 public class Lab2_2 {
     public static void main(String[] args) {
-
-        int mn;
         Scanner in = new Scanner(System.in);
         System.out.print("x1 = ");
         int x1 = in.nextInt();
@@ -31,6 +29,7 @@ public class Lab2_2 {
         if (x5 < min) {
             min = x5;
         }
+        int mn;
         if (x1 < x2) {
             mn = x1;
         } else {
@@ -46,7 +45,7 @@ public class Lab2_2 {
             max = x4 + x5;
         }
 
-        if (mn*max+5 == 0) {
+        if (min * max + 5 == 0) {
             System.out.println("Ошибка деления на ноль при этих значениях");
         } else {
             double y = ((3 * pow(min, 2)) - sqrt(3 * max + 1)) / (min * max + 5);
@@ -54,5 +53,3 @@ public class Lab2_2 {
         }
     }
 }
-// 2 sec, 453 ms
-// 1 sec, 606 ms

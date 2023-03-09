@@ -9,10 +9,6 @@ public class Lab6_1 {
 
         System.out.print("Введите длину массива: ");
         int n = scanner.nextInt();
-        if (n < 10) {
-            System.out.println("Длина массива должна быть не менее 10");
-            return;
-        }
 
         double[] X = new double[n];
 
@@ -29,21 +25,30 @@ public class Lab6_1 {
         double sum = 0.0;
         double product = 1.0;
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 1; i < n; i++) {
             if (X[i] > 0) {
-                sum += X[i];
-                product *= X[i];
+                sum += i;
+                product *= i;
             }
         }
 
+        if (sum > 0 && product > 0) {
+            System.out.println("Сумма положительных элементов: " + sum);
+            System.out.println("Произведение положительных элементов: " + product);
+        } else {
+            System.out.println("Нет положительных элементов");
+        }
 
-        System.out.println("Сумма положительных элементов: " + sum);
-        System.out.println("Произведение положительных элементов: " + product);
+        int temp = 0;
         System.out.print("Отрицательные элементы: ");
         for (int i = 0; i < n; i++) {
             if (X[i] < 0) {
                 System.out.print(X[i] + " ");
+                temp++;
             }
+        }
+        if (temp == 0) {
+            System.out.println("Нет отрицательных элементов");
         }
     }
 
