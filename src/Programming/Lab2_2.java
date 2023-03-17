@@ -8,15 +8,15 @@ public class Lab2_2 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.print("x1 = ");
-        int x1 = in.nextInt();
+        double x1 = in.nextDouble();
         System.out.print("x2 = ");
-        int x2 = in.nextInt();
+        double x2 = in.nextDouble();
         System.out.print("x3 = ");
-        int x3 = in.nextInt();
+        double x3 = in.nextDouble();
         System.out.print("x4 = ");
-        int x4 = in.nextInt();
+        double x4 = in.nextDouble();
         System.out.print("x5 = ");
-        int x5 = in.nextInt();
+        double x5 = in.nextDouble();
 
         double min = x1;
 
@@ -29,10 +29,8 @@ public class Lab2_2 {
         if (x5 < min) {
             min = x5;
         }
-        int mn;
-        if (x1 < x2) {
-            mn = x1;
-        } else {
+        double mn = x1;
+        if (x2 < x1) {
             mn = x2;
         }
 
@@ -45,8 +43,8 @@ public class Lab2_2 {
             max = x4 + x5;
         }
 
-        if (min * max + 5 == 0) {
-            System.out.println("Ошибка деления на ноль при этих значениях");
+        if (min * max + 5 == 0 || sqrt(3 * max + 1) >= 0 ) {
+            System.out.println("Ошибка");
         } else {
             double y = ((3 * pow(min, 2)) - sqrt(3 * max + 1)) / (min * max + 5);
             System.out.println("y = " + y);

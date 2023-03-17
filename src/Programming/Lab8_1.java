@@ -1,33 +1,26 @@
 package Programming;
 
-import java.util.Random;
+import java.util.Scanner;
 
 public class Lab8_1 {
 
     public static void main(String[] args) {
-        String str = generateRandomString(100); // generate a random string of length 10
-        char ch = '2'; // specify the character to search for
-
-        System.out.println("Random string: " + str);
-
-        int lastIndex = str.lastIndexOf(ch);
-        if (lastIndex != -1) {
-            System.out.println("Last position of '" + ch + "' is: " + lastIndex);
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите строку: ");
+        String str = scanner.nextLine();
+        System.out.print("Введите символ для поиска: ");
+        char ch = scanner.next().charAt(0);
+        int lastIndex = 0;
+        for (int i = str.length() - 1; i >= 0; i--) {
+            if (str.charAt(i) == ch) {
+                lastIndex = i;
+                break;
+            }
+        }
+        if (lastIndex != 0) {
+            System.out.println("Последняя позиция символа '" + ch + "' : " + lastIndex);
         } else {
-            System.out.println("'" + ch + "' not found in the string.");
+            System.out.println("'" + ch + "' символ не найден в строке.");
         }
-    }
-
-    // method to generate a random string of a given length
-    public static String generateRandomString(int length) {
-        String chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-        Random rand = new Random();
-        StringBuilder sb = new StringBuilder(length);
-
-        for (int i = 0; i < length; i++) {
-            sb.append(chars.charAt(rand.nextInt(chars.length())));
-        }
-
-        return sb.toString();
     }
 }

@@ -10,9 +10,9 @@ public class Lab3_1 {
         double prod = 1;
         Scanner in = new Scanner(System.in);
         System.out.print("M = ");
-        double M = in.nextDouble();
+        int M = in.nextInt();
         System.out.print("L = ");
-        double L = in.nextDouble();
+        int L = in.nextInt();
         System.out.print("a = ");
         double a = in.nextDouble();
         System.out.println("Цикл For");

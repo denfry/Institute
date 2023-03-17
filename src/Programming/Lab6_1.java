@@ -24,20 +24,23 @@ public class Lab6_1 {
 
         double sum = 0.0;
         double product = 1.0;
+        boolean flag = false;
 
-        for (int i = 1; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             if (X[i] > 0) {
-                sum += i;
-                product *= i;
+                    sum += i;
+                    product *= i;
+                    flag = true;
+                }
             }
+
+        if (!flag) {
+            System.out.println("Нет положительных элементов");
+        } else {
+            System.out.println("Сумма номеров положительных элементов: " + sum);
+            System.out.println("Произведение номеров положительных элементов: " + product);
         }
 
-        if (sum > 0 && product > 0) {
-            System.out.println("Сумма положительных элементов: " + sum);
-            System.out.println("Произведение положительных элементов: " + product);
-        } else {
-            System.out.println("Нет положительных элементов");
-        }
 
         int temp = 0;
         System.out.print("Отрицательные элементы: ");

@@ -1,6 +1,5 @@
 package Programming;
 
-import java.text.DecimalFormat;
 import java.util.Scanner;
 
 import static java.lang.Math.*;
@@ -19,31 +18,27 @@ public class Lab5 {
         System.out.print("Введите число точек (N): ");
         int n = scanner.nextInt();
 
-        System.out.println("Значения функции:");
+        System.out.println("    x      ->       y");
 
         double x;
         double y;
         double min = Double.POSITIVE_INFINITY;
+        int temp = 0;
 
         for (int i = 0; i < n; i++) {
             x = start + (i * (end - start) / (n - 1));
-            y = function(x);
-            String fx = new DecimalFormat("#0.000").format(x);
-            String fy = new DecimalFormat("#0.000").format(y);
-            System.out.println(i+ ": " + fx + " -> " + fy);
+            y = 0.25 * pow(x, 3) - 2 * x * x - pow(x, -1);
+            System.out.printf("%-10f ->  %f\n", x, y);
 
 
             if (y < min) {
                 min = y;
+                temp = i;
             }
         }
 
 
-        System.out.println("Минимум: " + min);
-    }
-
-    public static double function(double x) {
-        return 0.25 * pow(x, 3) - 2 * x * x - pow(x, -1);
+        System.out.println("Минимум в точке " + temp + ": " + min);
     }
 }
 

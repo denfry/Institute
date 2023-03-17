@@ -1,48 +1,55 @@
 package Programming;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
+
 public class Lab7_3 {
 
-        public static void main(String[] args) {
-            Scanner input = new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
 
-            System.out.print("Enter the size of the square matrix: ");
-            int n = input.nextInt();
+        System.out.print("Введите размер квадратной матрицы: ");
+        int n = input.nextInt();
 
-            double[][] matrix = new double[n][n];
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
-                    System.out.print("Enter element (" + (i+1) + "," + (j+1) + "): ");
-                    matrix[i][j] = input.nextDouble();
-                }
+        double[][] X = new double[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print("Введите элемент в строке " + (i + 1) + " столбце " + (j + 1) + ": ");
+                X[i][j] = input.nextDouble();
             }
-
-            // Display the original matrix
-            System.out.println("Original matrix:");
-            displayMatrix(matrix);
-
-            // Replace elements below the secondary diagonal
-            int count = 0;
-            for (int i = 1; i < n; i++) {
-                for (int j = 0; j < i; j++) {
-                    if (i % 2 == 1 && j % 2 == 0 && matrix[i][j] < 0) {
-                        count++;
-                    }
-                    matrix[i][j] = (i % 2 == 1 && j % 2 == 0) ? count : matrix[i][j];
-                }
-            }
-
-            // Display the modified matrix
-            System.out.println("Modified matrix:");
-            displayMatrix(matrix);
         }
 
-        public static void displayMatrix(double[][] matrix) {
-            for (double[] doubles : matrix) {
-                for (double aDouble : doubles) {
-                    System.out.print(aDouble + "\t");
-                }
-                System.out.println();
+
+        System.out.println("Изначальная матрица:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                String fmat = new DecimalFormat("#0.00").format(X[i][j]);
+                System.out.print(fmat + "\t");
             }
+            System.out.println();
+        }
+        int countNegatives = 0;
+        for (int i = 0; i < n; i+=2) {
+            for (int j = 1; j < n; j+=2) {
+                if (X[i][j] < 0) countNegatives++;
+            }
+        }
+        for (int i = 1; i < n; i++) {
+            for (int j = n - 1; j > n - 1 - i; j--) {
+                X[i][j] = countNegatives;
+            }
+        }
+
+
+
+        System.out.println("Матрица после замены:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                String fmat = new DecimalFormat("#0.00").format(X[i][j]);
+                System.out.print(fmat + "\t");
+            }
+            System.out.println();
         }
     }
+
+}

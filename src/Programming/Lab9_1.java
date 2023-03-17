@@ -7,17 +7,17 @@ public class Lab9_1 {
         System.out.print("Введите длину массива: ");
         int n = scanner.nextInt();
 
-        int[] array = new int[n];
+        double[] X = new double[n];
 
         for (int i = 0; i < n; i++) {
             System.out.print("x(" + i + ") = ");
-            array[i] = scanner.nextInt();
+            X[i] = scanner.nextDouble();
         }
 
-        int sum1 = sumPositive(array);
+        int sum1 = sumPositive(X);
         System.out.print("Сумма номеров положительных элементов: " + sum1);
     }
-    public static int sumPositive(int[] X) {
+    public static int sumPositive(double[] X) {
         int sum = 0;
         for (int i = 0; i < X.length; i++) {
             if (X[i] > 0) {
