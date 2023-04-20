@@ -11,6 +11,7 @@ public class Lab6_3 {
 
         double[] Z = new double[n];
         double[] Y = new double[n];
+        double[] Z_new = new double[n];
         double sum = 0;
         int m = 0;
 
@@ -23,13 +24,16 @@ public class Lab6_3 {
         for (int i = 0; i < n; i++) {
             if (Z[i] % 2 == 0) {
                 Y[m] = Z[i];
+                sum += Z[i];
                 m++;
             } else {
-                sum += Z[i];
+                Z_new[i] = Z[i];
             }
+
         }
 
-        double average = sum / (n - m);
+
+        double average = sum / m;
 
         Y[m] = average;
 
@@ -39,20 +43,21 @@ public class Lab6_3 {
             System.out.println("y(" + i + ") = " + Y[i]);
         }
 
+        System.out.println("sum = " + sum);
+        System.out.println("m = " + m);
 
-        bubbleSort(Z);
+
+        bubbleSort(Z_new);
         System.out.println("Отсортированный массив Z по возрастанию: ");
 
         for (int i = 0; i < n; i++) {
-            if (Z[i] != 0) {
-            System.out.println("z(" + i + ") = " + Z[i]);
+            if (Z_new[i] != 0) {
+                System.out.println("z(" + i + ") = " + Z_new[i]);
             }
         }
-
-
     }
 
-    public static void bubbleSort(double[] array) {
+    public static void bubbleSort (double[] array) {
         int n = array.length;
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {

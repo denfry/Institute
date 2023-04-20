@@ -20,7 +20,7 @@ public class Lab3_1 {
              s1 = s1 + ((j + 2) / a);
         }
         for (int k = 0; k <= L; k++){
-            s2 = (s2 + (k + a*a));
+            s2 += k + a*a;
             prod = prod * ((2 * a) / (k + 1));
         }
         sum_for = s1 + 1.2 * prod - s2;
@@ -48,6 +48,8 @@ public class Lab3_1 {
         s1 = 0;
         s2 = 0;
         prod = 1;
+        j = 2;
+        k = 0;
         do{
             s1 = s1 + ((j + 2) / a);
             j++;
@@ -57,7 +59,6 @@ public class Lab3_1 {
             prod = prod * ((2 * a) / (k + 1));
             k++;
         } while (k <= L);
-        System.out.println("s1 = " + s1);
         sum_do_while = s1 + 1.2 * prod - s2;
         System.out.println(sum_do_while);
 

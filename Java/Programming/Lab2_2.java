@@ -42,11 +42,12 @@ public class Lab2_2 {
         if (x4 + x5 > max) {
             max = x4 + x5;
         }
-
-        if (min * max + 5 == 0 || sqrt(3 * max + 1) >= 0 ) {
+        System.out.println("max = " + max);
+        System.out.println("min = " + min);
+        if (min * max + 5 == 0 || sqrt(3 * max + 1) < 0 ) {
             System.out.println("Ошибка");
         } else {
-            double y = ((3 * pow(min, 2)) - sqrt(3 * max + 1)) / (min * max + 5);
+            double y = ((3 * min*min) - sqrt(3 * max + 1)) / (min * max + 5);
             System.out.println("y = " + y);
         }
     }

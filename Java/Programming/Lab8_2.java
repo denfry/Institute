@@ -12,15 +12,17 @@ public class Lab8_2 {
         boolean isFound = false;
 
 
-
-        StringBuilder result = new StringBuilder();
-        for (String word : text.split(", ")) {
+        String result = "";
+        String[] split = text.split("[,.\\s]+");
+        for (int i = 0; i < split.length; i++) {
+            String word = split[i];
             if (word.length() < maxNumber) {
-                result.append(word).append(" ");
+                result += word + " ";
                 isFound = true;
             }
         }
-        String newText = result.toString().trim();
+
+        String newText = result.trim();
         if (newText.endsWith(".")) {
             newText = newText.substring(0, newText.length() - 1);
         }
@@ -30,5 +32,4 @@ public class Lab8_2 {
             System.out.println("Таких слов нет в данном тексте.");
         }
     }
-
 }

@@ -11,6 +11,7 @@ public class Lab6_2 {
 
         double[] Y = new double[n];
 
+
         for (int i = 0; i < n; i++) {
             System.out.print("Y(" + i + ") = ");
             Y[i] = scanner.nextDouble();
@@ -34,6 +35,7 @@ public class Lab6_2 {
                 break;
             }
         }
+
 
         if (penultimate != -1) {
             System.out.println("Предпоследний нечетный элемент с четным индексом равен: Y(" +

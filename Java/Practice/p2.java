@@ -15,10 +15,16 @@ public class p2 {
         double b = in.nextDouble();
         System.out.print("Введите c: ");
         double c = in.nextDouble();
+        System.out.print("Введите a1: ");
+        double a1 = in.nextDouble();
+        System.out.print("Введите b1: ");
+        double b1 = in.nextDouble();
+        System.out.print("Введите c1: ");
+        double c1 = in.nextDouble();
         System.out.print("Введите x: ");
         double x = in.nextDouble();
         double y;
-        if (x == a && x == b && x == c) {
+        if (x == a1 && x == b1 && x == c1) {
             y = sin(x);
         } else if (x <= a && b <= x && x <= c) {
             y = cos(x);

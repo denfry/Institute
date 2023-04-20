@@ -22,32 +22,33 @@ public class p6 {
         System.out.println("Изначальная матрица:");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                String fmat = new DecimalFormat("#0.00").format(X[i][j]);
-                System.out.print(fmat + "\t");
+                System.out.printf("%6.2f", X[i][j]);
             }
             System.out.println();
         }
         double sum = 0;
-        for (int i = 0; i < n; i++) {
+        boolean valuesReplaced = false;
+        for (int i = 1; i < n; i+=2) {
             for (int j = 0; j < n; j++) {
-                if (i % 2 == 1 && X[i][j] % 1 != 0) {
+                if (X[i][j] % 1 != 0) {
                     sum += X[i][j];
+                    valuesReplaced = true;
                 }
             }
         }
-
-        for (int i = 0; i < n; i++) {
-            X[i][n - 1 - i] = sum;
-        }
-
-        System.out.println("Матрица после замены:");
-        System.out.println(X[0][2]);
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                String fmat = new DecimalFormat("#0.00").format(X[i][j]);
-                System.out.print(fmat + "\t");
+        if (valuesReplaced) {
+            for (int i = 0; i < n; i++) {
+                X[i][n - 1 - i] = sum;
             }
-            System.out.println();
+            System.out.println("Матрица после замены:");
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    System.out.printf("%6.2f", X[i][j]);
+                }
+                System.out.println();
+            }
+        } else {
+            System.out.println("Нет значений, подходящих для замены.");
         }
     }
 }

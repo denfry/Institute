@@ -17,7 +17,7 @@ public class Lab3_2 {
         for (int i = 1; i <= N; i++) {
             s = 0;
             for (int k = 1; k <= M; k++) {
-                s = s + (i / k + b);
+                s = s + ((double)i / k + b);
             }
             p = p * (i + s);
         }

@@ -2,6 +2,8 @@ package Programming;
 
 import java.util.Scanner;
 
+import static Programming.BubbleSort.bubbleSort;
+
 public class Lab9_2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -15,26 +17,26 @@ public class Lab9_2 {
             Z[i] = scanner.nextDouble();
         }
 
-
         newArray(Z, n);
     }
 
     public static void newArray(double[] Z, int n) {
         double[] Y = new double[n];
+        double[] Z_new = new double[n];
         double sum = 0;
         int m = 0;
 
         for (int i = 0; i < n; i++) {
             if (Z[i] % 2 == 0) {
                 Y[m] = Z[i];
-                m++;
-                Z[i] = 0;
-            } else {
                 sum += Z[i];
+                m++;
+            } else {
+                Z_new[i] = Z[i];
             }
         }
 
-        double average = sum / (n - m);
+        double average = sum / m;
 
         Y[m] = average;
 
@@ -44,26 +46,15 @@ public class Lab9_2 {
         for (int i = 0; i < m + 1; i++) {
             System.out.println("y(" + i + ") = " + Y[i]);
         }
-        bubbleSort(Z);
+        bubbleSort(Z_new);
         System.out.println("Отсортированный массив Z по возрастанию: ");
 
         for (int i = 0; i < n; i++) {
-            if (Z[i] != 0) {
-                System.out.println("z(" + i + ") = " + Z[i]);
+            if (Z_new[i] != 0) {
+                System.out.println("z(" + i + ") = " + Z_new[i]);
             }
         }
     }
 
-    public static void bubbleSort(double[] array) {
-        int n = array.length;
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                if (array[j] > array[j + 1]) {
-                    double temp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = temp;
-                }
-            }
-        }
-    }
+
 }

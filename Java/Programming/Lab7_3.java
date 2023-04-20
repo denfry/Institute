@@ -1,6 +1,5 @@
 package Programming;
 
-import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Lab7_3 {
@@ -23,15 +22,16 @@ public class Lab7_3 {
         System.out.println("Изначальная матрица:");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                String fmat = new DecimalFormat("#0.00").format(X[i][j]);
-                System.out.print(fmat + "\t");
+                System.out.printf("%6.2f", X[i][j]);
             }
             System.out.println();
         }
         int countNegatives = 0;
-        for (int i = 0; i < n; i+=2) {
-            for (int j = 1; j < n; j+=2) {
-                if (X[i][j] < 0) countNegatives++;
+        for (int i = 0; i < n; i += 2) {
+            for (int j = 1; j < n; j += 2) {
+                if (X[i][j] < 0) {
+                    countNegatives++;
+                }
             }
         }
         for (int i = 1; i < n; i++) {
@@ -41,12 +41,10 @@ public class Lab7_3 {
         }
 
 
-
         System.out.println("Матрица после замены:");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                String fmat = new DecimalFormat("#0.00").format(X[i][j]);
-                System.out.print(fmat + "\t");
+                System.out.printf("%6.2f", X[i][j]);
             }
             System.out.println();
         }

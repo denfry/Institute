@@ -1,6 +1,6 @@
 package Practice;
 
-import java.text.DecimalFormat;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class p5 {
@@ -28,30 +28,49 @@ public class p5 {
         System.out.println("Матрица:");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                String fmat = new DecimalFormat("#0.00").format(matrix[i][j]);
-                System.out.print(fmat + "\t");
+                System.out.printf("%6.2f", matrix[i][j]);
             }
             System.out.println();
         }
-        double[] sums = new double[m / 2];
+
+        System.out.println("Половины сумм отрицательных элементов в четных столбцах:");
+        boolean hasNegativeElements = false;
+        int count = 0;
+        for (int j = 0; j < m; j += 2) {
+            hasNegativeElements = false;
+            for (int i = 0; i < n; i++) {
+                if (matrix[i][j] < 0) {
+                    hasNegativeElements = true;
+                }
+            }
+            if (hasNegativeElements) {
+                count++;
+            }
+        }
+        double[] sums = new double[count];
+        count = 0;
         for (int j = 0; j < m; j += 2) {
             double sum = 0;
-            int count = 0;
+            hasNegativeElements = false;
             for (int i = 0; i < n; i++) {
                 if (matrix[i][j] < 0) {
                     sum += matrix[i][j];
-                    count++;
+                    hasNegativeElements = true;
                 }
             }
-            if (count > 0) {
-                sums[j / 2] = sum / 2;
+            if (hasNegativeElements) {
+                sums[count] = sum / 2;
+                count++;
             }
         }
 
 
-        System.out.println("Половины сумм отрицательных элементов в четных столбцах:");
-        for (int i = 0; i < m / 2; i++) {
-            System.out.println(sums[i]);
+        if (!hasNegativeElements) {
+            System.out.println("Нет отрицательных элементов ни в одном столбце");
+        } else {
+            for (int i = 0; i < sums.length; i++) {
+                System.out.println(sums[i]);
+            }
         }
     }
 }

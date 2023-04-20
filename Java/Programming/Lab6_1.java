@@ -19,7 +19,10 @@ public class Lab6_1 {
 
 
         System.out.print("Начальный массив: ");
-        printArray(X);
+        for (int i = 0; i < X.length; i++) {
+            System.out.print(X[i] + " ");
+        }
+        System.out.println();
 
 
         double sum = 0.0;
@@ -28,11 +31,11 @@ public class Lab6_1 {
 
         for (int i = 0; i < n; i++) {
             if (X[i] > 0) {
-                    sum += i;
-                    product *= i;
-                    flag = true;
-                }
+                sum += i;
+                product *= i;
+                flag = true;
             }
+        }
 
         if (!flag) {
             System.out.println("Нет положительных элементов");
@@ -53,12 +56,5 @@ public class Lab6_1 {
         if (temp == 0) {
             System.out.println("Нет отрицательных элементов");
         }
-    }
-
-    private static void printArray(double[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
-        System.out.println();
     }
 }

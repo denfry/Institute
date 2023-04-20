@@ -23,7 +23,7 @@ public class Lab5 {
         double x;
         double y;
         double min = Double.POSITIVE_INFINITY;
-        int temp = 0;
+        double temp = 0;
 
         for (int i = 0; i < n; i++) {
             x = start + (i * (end - start) / (n - 1));
@@ -33,7 +33,7 @@ public class Lab5 {
 
             if (y < min) {
                 min = y;
-                temp = i;
+                temp = x;
             }
         }
 
