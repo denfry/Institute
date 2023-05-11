@@ -1,30 +1,28 @@
 package Programming;
 
+import java.util.Scanner;
+
 public class minplus {
     public static void main(String[] args) {
-        long start = System.currentTimeMillis();
-        int y = 0;
-        y += -1000000;
-        System.out.println("y = " + y);
-        long end = System.currentTimeMillis();
-        System.out.println("Время выполнения: " + (end - start) + " мс");
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Введите строку: ");
+        String input = scanner.nextLine();
+
+        int punctuationCount = 0;
+        int digitCount = 0;
+
+        for (int i = 0; i < input.length(); i++) {
+            char c = input.charAt(i);
+
+            if (Character.isDigit(c)) {
+                digitCount++;
+            } else if (Character.isDefined(c) && !Character.isLetter(c) && !Character.isWhitespace(c)) {
+                punctuationCount++;
+            }
+        }
+
+        System.out.println("Количество знаков препинания: " + punctuationCount);
+        System.out.println("Количество цифр: " + digitCount);
     }
 }
-/*
-    13  12 12 12
-    11
-    12
-
-
-
-    14
-    13
-    15
-
-
-    21
-    42
-    12
-    12
-    12
- */

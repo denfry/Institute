@@ -35,20 +35,8 @@ public class p5 {
 
         System.out.println("Половины сумм отрицательных элементов в четных столбцах:");
         boolean hasNegativeElements = false;
+        double[] sums = new double[m];
         int count = 0;
-        for (int j = 0; j < m; j += 2) {
-            hasNegativeElements = false;
-            for (int i = 0; i < n; i++) {
-                if (matrix[i][j] < 0) {
-                    hasNegativeElements = true;
-                }
-            }
-            if (hasNegativeElements) {
-                count++;
-            }
-        }
-        double[] sums = new double[count];
-        count = 0;
         for (int j = 0; j < m; j += 2) {
             double sum = 0;
             hasNegativeElements = false;
@@ -63,13 +51,13 @@ public class p5 {
                 count++;
             }
         }
-
+        sums = Arrays.copyOf(sums, count);
 
         if (!hasNegativeElements) {
             System.out.println("Нет отрицательных элементов ни в одном столбце");
         } else {
-            for (int i = 0; i < sums.length; i++) {
-                System.out.println(sums[i]);
+            for (double sum : sums) {
+                System.out.println(sum);
             }
         }
     }

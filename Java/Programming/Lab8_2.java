@@ -12,20 +12,26 @@ public class Lab8_2 {
         boolean isFound = false;
 
 
-        String result = "";
-        String[] split = text.split("[,.\\s]+");
+        StringBuilder result = new StringBuilder();
+        String[] split = text.split("(?<=\\b|\\s)|(?=\\b|\\s)|(?<=\\p{Punct})|(?=\\p{Punct})");
         for (int i = 0; i < split.length; i++) {
             String word = split[i];
             if (word.length() < maxNumber) {
-                result += word + " ";
-                isFound = true;
+                if (word.matches("\\p{Punct}")) {
+                    if (i < split.length - 1 && !split[i + 1].matches("\\p{Punct}")) {
+                        result.append(word);
+                    } else {
+                        result.append(word);
+                    }
+                } else {
+                    result.append(word);
+                    isFound = true;
+                }
             }
         }
 
-        String newText = result.trim();
-        if (newText.endsWith(".")) {
-            newText = newText.substring(0, newText.length() - 1);
-        }
+
+        String newText = result.toString().trim();
         if (isFound) {
             System.out.println("Новый текст: " + newText);
         } else {
@@ -33,3 +39,6 @@ public class Lab8_2 {
         }
     }
 }
+
+
+//.,..еккенкекв,., uqfdiouwe,. dqw. dwqdq.  оролрпорпор.

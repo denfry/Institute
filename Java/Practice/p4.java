@@ -35,13 +35,14 @@ public class p4 {
             System.out.println("В массиве нет элементов, значение которого больше A");
         }
         int countindex = 0;
-        for (int i = 0; i < X.length; i++) {
+        for (int i = 0; i < n; i++) {
             if ((i + 1) % 5 != 0) {
-                X[countindex] = X[i];
-                countindex++;
+                X[i - (i + 1) / 5] = X[i];
+
             }
         }
-        X = Arrays.copyOf(X, countindex);
+        n -= (n / 5);
+        X = Arrays.copyOf(X, n);
 
 
         double sum = 0;
