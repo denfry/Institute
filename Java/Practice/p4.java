@@ -34,7 +34,6 @@ public class p4 {
         } else {
             System.out.println("В массиве нет элементов, значение которого больше A");
         }
-        int countindex = 0;
         for (int i = 0; i < n; i++) {
             if ((i + 1) % 5 != 0) {
                 X[i - (i + 1) / 5] = X[i];

@@ -12,8 +12,8 @@ public class p1 {
         double b = scanner.nextDouble();
         System.out.print("c = ");
         double c = scanner.nextDouble();
-        double d;
-        d = sin((b + c) / a) + ((pow((b + c), (1.0/3))) / a) + b*b;
-        System.out.println("d = " + d);
+        double y;
+        y = sin((b + c) / a) + ((pow((b + c), (1.0/3))) / a) + b*b;
+        System.out.println("d = " + y);
     }
 }
