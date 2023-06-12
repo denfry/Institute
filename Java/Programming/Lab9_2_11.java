@@ -1,4 +1,5 @@
 package Programming;
+
 import java.util.Scanner;
 
 public class Lab9_2_11 {
@@ -15,7 +16,7 @@ public class Lab9_2_11 {
             Xm[i] = scanner.nextInt();
         }
 
-        System.out.print("Введите размер массива Yn:");
+        System.out.print("Введите размер массива Yn: ");
         int n = scanner.nextInt();
         double[] Yn = new double[n];
 
@@ -25,16 +26,6 @@ public class Lab9_2_11 {
             Yn[i] = scanner.nextInt();
         }
 
-        double[] Zk = mergeArrays(Xm, Yn);
-
-        System.out.println("Результат (массив Zk):");
-        for (int i = 0; i < Zk.length; i++) {
-            System.out.print("z(" + i + ") = ");
-            System.out.println(Zk[i]);
-        }
-    }
-
-    public static double[] mergeArrays(double[] Xm, double[] Yn) {
         int countXm = 0;
         int countYn = 0;
         for (int i = 0; i < Xm.length; i++) {
@@ -49,6 +40,16 @@ public class Lab9_2_11 {
         }
         double[] Zk = new double[countXm + countYn];
 
+        mergeArrays(Xm, Yn, Zk);
+
+        System.out.println("Результат (массив Zk):");
+        for (int i = 0; i < Zk.length; i++) {
+            System.out.print("z(" + i + ") = ");
+            System.out.println(Zk[i]);
+        }
+    }
+
+    public static void mergeArrays(double[] Xm, double[] Yn, double[] Zk) {
         int zkIndex = 0;
 
         for (int i = 0; i < Xm.length; i++) {
@@ -64,8 +65,5 @@ public class Lab9_2_11 {
                 zkIndex++;
             }
         }
-
-
-        return Zk;
     }
 }
