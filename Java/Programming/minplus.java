@@ -26,3 +26,16 @@ public class minplus {
         System.out.println("Количество цифр: " + digitCount);
     }
 }
+/*
+
+
+
+1: a=5, b=5, c=5, a1=5, b1=5, c1=5, x=5
+y = sin(5) = -0.958924
+
+2: a=10, b=3, c=11, a1=10, b1=3, c1=11, x=-4
+y = cos(5) = 0.283662
+
+3: a=10, b=12, c=9, a1=10, b1=12, c1=9, x=-4
+y = abs(-4) = 4
+ */
